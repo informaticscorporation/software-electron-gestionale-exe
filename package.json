@@ -10,7 +10,8 @@
     "dev": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "lint": "node --check src/main.js && node --check src/db.js && node --check renderer/app.js"
+    "lint": "node --check src/main.js && node --check src/db.js && node --check renderer/app.js",
+    "preinstall": "node scripts/check-node-version.js"
   },
   "dependencies": {
     "better-sqlite3": "^9.4.3"
@@ -52,5 +53,9 @@
       ],
       "category": "Office"
     }
+  },
+  "engines": {
+    "node": ">=20 <23",
+    "npm": ">=9"
   }
 }
