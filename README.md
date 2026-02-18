@@ -20,7 +20,7 @@ Applicazione desktop professionale per agenzie di noleggio **auto, moto e barche
 
 ## Requisiti
 
-- Node.js 18+ (consigliato 20 LTS)
+- Node.js 20.x o 22.x LTS (Node 25 non supportato da `better-sqlite3`)
 - npm 9+
 
 ## Avvio sviluppo
@@ -28,6 +28,8 @@ Applicazione desktop professionale per agenzie di noleggio **auto, moto e barche
 ```bash
 npm install
 npm run dev
+
+> Se hai installato Node 25+, passa a una versione LTS (20 o 22) prima di eseguire `npm install`.
 ```
 
 ## Build installabile
