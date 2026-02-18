@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestionale Noleggi Pro</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Gestionale Noleggi Pro</h1>
+        <p>Auto · Moto · Barche</p>
+      </div>
+      <div class="pill">Desktop Edition</div>
+    </header>
+
+    <main>
+      <section class="cards" id="dashboardCards"></section>
+
+      <section class="layout-grid">
+        <article class="panel">
+          <h2>Anagrafica Clienti</h2>
+          <form id="clientForm" class="grid-2">
+            <input name="full_name" placeholder="Nome e Cognome *" required />
+            <input name="phone" placeholder="Telefono" />
+            <input name="email" placeholder="Email" />
+            <input name="document_id" placeholder="Documento" />
+            <button type="submit">Aggiungi Cliente</button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Cliente</th><th>Contatti</th></tr></thead>
+              <tbody id="clientsTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Flotta Veicoli</h2>
+          <form id="vehicleForm" class="grid-2">
+            <input name="plate_or_code" placeholder="Targa/Codice *" required />
+            <select name="type" id="vehicleTypeSelect" required></select>
+            <input name="brand" placeholder="Marca *" required />
+            <input name="model" placeholder="Modello *" required />
+            <input name="daily_rate" type="number" min="0" step="0.01" placeholder="Tariffa giornaliera € *" required />
+            <input name="notes" placeholder="Note" />
+            <button type="submit">Aggiungi Veicolo</button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Veicolo</th><th>Tipo</th><th>Tariffa</th><th>Stato</th></tr></thead>
+              <tbody id="vehiclesTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Contratti di Noleggio</h2>
+        <form id="rentalForm" class="grid-4">
+          <select name="client_id" id="rentalClientSelect" required></select>
+          <select name="vehicle_id" id="rentalVehicleSelect" required></select>
+          <input name="start_date" type="date" required />
+          <input name="end_date" type="date" required />
+          <input name="total_amount" type="number" min="0" step="0.01" placeholder="Totale € *" required />
+          <input name="deposit" type="number" min="0" step="0.01" placeholder="Caparra €" />
+          <input name="notes" placeholder="Note contratto" />
+          <button type="submit">Crea Noleggio</button>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Cliente</th><th>Veicolo</th><th>Periodo</th><th>Totale</th><th>Stato</th><th>Azione</th>
+              </tr>
+            </thead>
+            <tbody id="rentalsTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

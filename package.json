@@ -1,0 +1,56 @@
+{
+  "name": "gestionale-noleggi-pro",
+  "version": "1.1.0",
+  "description": "Gestionale desktop professionale per agenzie di noleggio auto, moto e barche.",
+  "main": "src/main.js",
+  "author": "Rental Agency Suite",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20 <24"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "lint": "node --check src/main.js && node --check src/db.js && node --check renderer/app.js"
+  },
+  "devDependencies": {
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.gestionale.noleggi",
+    "productName": "Gestionale Noleggi Pro",
+    "files": [
+      "src/**/*",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Office"
+    }
+  }
+}
